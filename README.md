@@ -13,7 +13,7 @@ Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usa
 
 ## Lista de funciones
 
-### Funciones principales
+### Crear sección de hormigón armado y/o pretensado
 
 <details>
 <summary><a href="https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/crear_seccion.m"><b>crear_seccion</b></a></summary>
@@ -91,6 +91,109 @@ Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usa
 
 </details>
 
+### Obtener propiedades lineales
+
+<details>
+<summary><a href="https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/baricentro_lineal.m"><b>baricentro_lineal</b></a></summary>
+
+    BARICENTRO_LINEAL devuelve la posición vertical del baricentro de una
+    sección de hormigón armado y/o pretensado, según la EHE-08.
+
+    yG = baricentro_lineal(seccion) calcula la posición del baricentro 
+    (lineal) de una sección de hormigón armado y pretensado a partir de 
+    las hipótesis de los materiales de la norma EHE-08.
+
+    ENTRADA REQUERIDA:
+    seccion        Estructurado con la información de la geometría de la 
+                   seccion y las propiedades de los materiales componentes,
+                   creado a partir de la función crear_seccion.m
+
+    SALIDA:
+    yG             Posición vertical del baricentro lineal (mm)
+
+</details>
+
+<details>
+<summary><a href="https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/rigidez_flexional_bruta.m"><b>rigidez_flexional_bruta</b></a></summary>
+
+    RIGIDEZ_FLEXIONAL_BRUTA devuelve la rigidez a flexión bruta de una
+    sección de hormigón armado y pretensado, según la EHE-08.
+
+    EIb = rigidez_flexional_bruta(seccion) calcula la rigidez a flexión
+    bruta (lineal) de una sección de hormigón armado y prentensado a
+    partir de las hipótesis de los materiales de la norma EHE-08.
+
+    ENTRADA REQUERIDA:
+    seccion        Estructurado con la información de la geometría de la 
+                   seccion y las propiedades de los materiales componentes,
+                   creado a partir de la función crear_seccion.m
+
+    SALIDA:
+    EIb            Rigidez a flexión bruta lineal (N.mm2)
+
+</details>
+
+### Obtener propiedades no lineales
+
+<details>
+<summary><a href="https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/momento_fisuracion.m"><b>momento_fisuracion</b></a></summary>
+
+    MOMENTO_FISURACION devuelve los momentos de fisuración de una sección
+    de hormigón armado para una directa dada, según la EHE-08.
+
+    [MfInf, MfSup] = momento_fisuracion(N, seccion) calcula los momentos
+    de fisuración de una sección de hormigón armado a partir de las hipótesis
+    del capítulo 42.1 de la norma EHE-08. Para el cálculo considera una ley
+    plana de deformaciones, una directa 'N' (en N); y la geometría de la
+    sección y las propiedades de los materiales indicadas en el estructurado
+    'seccion' (incluyendo la resistencia a flexotracción del hormigón, dada
+    por el parámetro 'seccion.fctmfl').
+
+    ENTRADA REQUERIDA:
+    N              Directa (con signo) actuante (N)
+    seccion        Estructurado con la información de la geometría de la 
+                   seccion y las propiedades de los materiales componentes,
+                   creado a partir de la función crear_seccion.m
+
+    SALIDA:
+    MfInf          Momento de fisuración para la directa ingresada (N.mm)
+                   relativo al caso en que fisura la fibra inferior
+    MfSup          Momento de fisuración para la directa ingresada (N.mm)
+                   relativo al caso en que fisura la fibra superior
+
+</details>
+
+<details>
+<summary><a href="https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/rigidez_flexional_fisurada.m"><b>rigidez_flexional_fisurada</b></a></summary>
+
+    RIGIDEZ_FLEXIONAL_FISURADA devuelve la rigidez a flexión fisurada (no
+    lineal) de una sección de hormigón armado y/o pretensado para una
+    directa y un momento, según la EHE-08.
+
+    EIf = rigidez_flexional_fisurada(N, M, seccion) calcula la rigidez a 
+    flexión fisurada (no lineal) de una sección de hormigón armado y 
+    pretensado a partir de las hipótesis del capítulo 42.1 de la norma
+    EHE-08. Para el cálculo considera una ley plana de deformaciones, una
+    directa 'N' (en N) y un momento flector 'M' (en N.mm); y la geometría
+    de la sección y las propiedades de los materiales indicadas en el
+    estructurado 'seccion'. El cálculo impone un pequeño giro en torno a
+    y = 0 y analiza la variación en el momento flector asociada.
+
+    ENTRADA REQUERIDA:
+    N              Directa (con signo) actuante (N)
+    M              Momento flector (con signo) actuante en relación a una
+                   alutra 0 (N.mm)
+    seccion        Estructurado con la información de la geometría de la 
+                   seccion y las propiedades de los materiales componentes,
+                   creado a partir de la función crear_seccion.m
+
+    SALIDA:
+    EIf            Rigidez a flexión fisurada no lineal (N.mm2)
+
+</details>
+
+### Calcular deformaciones y solicitaciones
+
 <details>
 <summary><a href="https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/deformaciones_normales.m"><b>deformaciones_normales</b></a></summary>
 
@@ -165,27 +268,9 @@ Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usa
 
 </details>
 
+### Verificar sección
+
 ### Funciones auxiliares
-
-<details>
-<summary><a href="https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/baricentro_lineal.m"><b>baricentro_lineal</b></a></summary>
-
-    BARICENTRO_LINEAL devuelve la posición vertical del baricentro de una
-    sección de hormigón armado y/o pretensado, según la EHE-08.
-
-    yG = baricentro_lineal(seccion) calcula la posición del baricentro 
-    (lineal) de una sección de hormigón armado y pretensado a partir de 
-    las hipótesis de los materiales de la norma EHE-08.
-
-    ENTRADA REQUERIDA:
-    seccion        Estructurado con la información de la geometría de la 
-                   seccion y las propiedades de los materiales componentes,
-                   creado a partir de la función crear_seccion.m
-
-    SALIDA:
-    yG             Posición vertical del baricentro lineal (mm)
-
-</details>
 
 <details>
 <summary><a href="https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/deformacion_acero_activo.m"><b>deformacion_acero_activo</b></a></summary>
