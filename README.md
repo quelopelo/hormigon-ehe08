@@ -9,7 +9,7 @@ El flujo de trabajo en el programa es el siguiente:
 2. Crear una sección de hormigón armado y/o pretensado usando la función [crear_seccion](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/crear_seccion.m).
 3. Utilizar cualquiera de las funciones incluídas en el directorio [src/ehe](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe).
 
-Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usando el comando `help` seguido por el nombre de la función (por ejemplo: `help crear_seccion`). Adicionalmente, se incluye un [ejemplo](https://htmlpreview.github.io/?https://github.com/quelopelo/hormigon-ehe08/blob/main/docs/ejemplo.html) que sirve de guía del flujo de trabajo y de las funciones implementadas.
+Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usando el comando `help` seguido por el nombre de la función (por ejemplo: `help crear_seccion`). Adicionalmente, se incluyen algunos [ejemplos](https://htmlpreview.github.io/?https://github.com/quelopelo/hormigon-ehe08/blob/main/docs) que sirven de guía del flujo de trabajo y de las funciones implementadas.
 
 ## Lista de funciones
 
@@ -192,7 +192,35 @@ Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usa
 
 </details>
 
-### Calcular deformaciones y solicitaciones
+<details>
+<summary><a href="https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/rigidez_flexional_equivalente.m"><b>rigidez_flexional_equivalente</b></a></summary>
+
+    RIGIDEZ_FLEXIONAL_FISURADA devuelve la rigidez a flexión equivalente de
+    una sección de hormigón armado y/o pretensado para una directa y un
+    momento, según la EHE-08.
+
+    EIe = rigidez_flexional_equivalente(N, M, seccion) calcula la rigidez
+    a flexión equivalente (no lineal) de una sección de hormigón armado y 
+    pretensado a partir de las hipótesis del capítulo 42.1 y de acuerdo al
+    capítulo 50.2 de la norma EHE-08. Para el cálculo considera una ley
+    plana de deformaciones, una directa 'N' (en N) y un momento flector 'M'
+    (en N.mm); y la geometría de la sección y las propiedades de los
+    materiales indicadas en el estructurado 'seccion'.
+
+    ENTRADA REQUERIDA:
+    N              Directa (con signo) actuante (N)
+    M              Momento flector (con signo) actuante en relación a una
+                   alutra 0 (N.mm)
+    seccion        Estructurado con la información de la geometría de la 
+                   seccion y las propiedades de los materiales componentes,
+                   creado a partir de la función crear_seccion.m
+
+    SALIDA:
+    EIe            Rigidez a flexión equivalente no lineal (N.mm2)
+
+</details>
+
+### Calcular deformaciones y solicitaciones normales
 
 <details>
 <summary><a href="https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/deformaciones_normales.m"><b>deformaciones_normales</b></a></summary>
@@ -268,7 +296,60 @@ Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usa
 
 </details>
 
-### Verificar sección
+### Verificar solicitaciones normales
+
+<details>
+<summary><a href="https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/coeficiente_solicitaciones_normales.m"><b>coeficiente_solicitaciones_normales</b></a></summary>
+
+    COEFICIENTE_SOLICITACIONES_NORMALES devuelve el coeficiente de
+    verificación de una sección de hormigón armado y/o pretensado para una
+    directa y un momento flector dados, según la EHE-08.
+
+    coef = coeficiente_solicitaciones_normales(N, M, seccion) devuelve el
+    coeficiente de verificación 'coef' de una sección de hormigón armado
+    y pretensado según el capítulo 42.1 de la norma EHE-08. Para el cálculo
+    considera una ley plana de deformaciones, una directa 'N' (en N) y un
+    momento flector 'M' (en N.mm); y la geometría de la sección y las
+    propiedades de los materiales indicadas en el estructurado 'seccion'.
+
+    [coef, eInf, eSup] = coeficiente_solicitaciones_normales(N, M, seccion)
+    adicionalmente devuelve la pareja de deformaciones 'eInf' y 'eSup'
+    correspondiente a la ley plana de deformaciones en agotamiento que
+    iguala la exentricidad última con la actuante e ingresada (M / N).
+
+    [coef, eInf, eSup] = coeficiente_solicitaciones_normales(N, M, seccion, ...
+    eInfVec, eSupVec) permite modificar la frontera de deformaciones a partir 
+    de la pareja de deformaciones definida en los vectores 'eInfVec' y 
+    'eSupVec'. Este sintaxis solo es recomendada para en contextos específicos.
+
+    ENTRADA REQUERIDA:
+    N              Directa (con signo) actuante (N)
+    M              Momento flector (con signo) actuante en relación a una
+                   alutra 0 (N.mm)
+    seccion        Estructurado con la información de la geometría de la 
+                   seccion y las propiedades de los materiales componentes,
+                   creado a partir de la función crear_seccion.m
+
+    ENTRADA OPCIONAL (NO RECOMENDADA):
+    eInfVec        Vector de deformaciones unitarias de la fibra inferior
+                   del hormigón correspondiente a la frontera de
+                   deformaciones planas bajo estudio
+    eSupVec        Vector de deformaciones unitarias de la fibra superior
+                   del hormigón correspondiente a la frontera de
+                   deformaciones planas bajo estudio
+
+    SALIDA:
+    coef           Coeficiente de verificación calculado como la relación
+                   entre las solicitaciones actuantes y las capacidades 
+                   resistentes últimas para la misma excentricidad (M / N)
+    eInf           Deformación unitaria de la fibra inferior del hormigón
+                   correspondiente a la ley de deformaciones en agotamiento
+                   o para la frontera dada si se ingresó 'eInfVec'
+    eSup           Deformación unitaria de la fibra superior del hormigón
+                   correspondiente a la ley de deformaciones en agotamiento
+                   o para la frontera dada si se ingresó 'eSupVec'
+
+</details>
 
 ### Funciones auxiliares
 
@@ -396,3 +477,13 @@ Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usa
     sigma          Tensión del hormigón para los parámetros ingresados (MPa)
 
 </details>
+
+## Ejemplos
+
+## Posibles futuros trabajos
+
+- Agregar funciones adicionales para verificar otros estados límite (ELS y ELU).
+- Utilizar una normativa más actualizada y de alcance internacional, como el Eurocódigo 2.
+- Incorporar el diseño y cálculo de otros materiales, como acero o madera.
+- Agregar una interfaz de usuario (GUI).
+- Implementar el programa en otro lenguaje de programación, que no sea propietario y que admita la programación orientada a objetos.
