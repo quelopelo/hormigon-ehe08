@@ -4,6 +4,8 @@
 
 Hormigon EHE-08 consiste en un conjunto de funciones implementadas en MATLAB para diseñar secciones de hormigón armado y pretensado según la norma española EHE-08. Por ser una versión inicial y estar en desarrollo, el programa se distribuye únicamente mediante el [código fuente](https://github.com/quelopelo/hormigon-ehe08/tree/main/src) de MATLAB.
 
+Actualmente, el programa permite trabajar con secciones de hormigón armado y/o pretensado con un eje de simetría. Una vez ingresada la sección es posible obtener las propiedades lineales, como la posición del baricentro y la inercia bruta; y las propiedades no lineales (dependientes de las solicitaciones), como el momento de fisuración, la inercia fisurada y la inercia equivalente. A su vez, el programa permite obtener la ley plana de deformaciones dadas unas solicitaciones; así como las solicitaciones dada una ley plana de deformaciones. Por último, vinculada a esta última funcionalidad, el programa permite calcular el factor de utilización para unas solicitaciones dadas. Esta función se puede usar iterativamente para dimensionar una sección.
+
 El flujo de trabajo en el programa es el siguiente:
 1. Agregar al *path* los directorios [src/ehe](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe) y [src/utils](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/utils), por ejemplo a partir del script [init](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/init.m).
 2. Crear una sección de hormigón armado y/o pretensado usando la función [crear_seccion](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/crear_seccion.m).
@@ -480,10 +482,17 @@ Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usa
 
 ## Ejemplos
 
+Esta sección contiene los enlaces a los ejemplos generados.
+
+El primer ejemplo consiste en la creación de una sección de hormigón ... // en proceso
+
 ## Posibles futuros trabajos
 
+- Extender el cálculo de solicitaciones normales a secciones sin un eje de simetría.
 - Agregar funciones adicionales para verificar otros estados límite (ELS y ELU).
 - Utilizar una normativa más actualizada y de alcance internacional, como el Eurocódigo 2.
 - Incorporar el diseño y cálculo de otros materiales, como acero o madera.
-- Agregar una interfaz de usuario (GUI).
+- Mejorar la eficiencia de las funciones implementadas.
+- Generar la documentación en otros idiomas, especialmente en inglés.
+- Agregar una interfaz de usuario (GUI) que permita visualizar los datos introducidos y los resultados.
 - Implementar el programa en otro lenguaje de programación, que no sea propietario y que admita la programación orientada a objetos.
