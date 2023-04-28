@@ -131,10 +131,10 @@ seccion.minDivHorm = minDivHorm;
 % Corrección del centro de gravedad
 if bariFlag
     yG = baricentro_lineal(seccion);
+    geoHorm(:, 1) = geoHorm(:, 1) - yG;
     if ~isempty(seccion.geoAcPas)
-        geoHorm(:, 1) = geoHorm(:, 1) - yG;
+        geoAcPas(:, 1) = geoAcPas(:, 1) - yG;
     end
-    geoAcPas(:, 1) = geoAcPas(:, 1) - yG;
     if ~isempty(seccion.geoAcAct)
         geoAcAct(:, 1) = geoAcAct(:, 1) - yG;
     end
