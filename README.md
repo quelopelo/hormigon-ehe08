@@ -482,9 +482,11 @@ Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usa
 
 ## Ejemplos
 
-Esta sección contiene los enlaces a los ejemplos generados.
+Esta sección contiene los enlaces a los ejemplos de la documentación.
 
-El primer ejemplo consiste en la creación de una sección de hormigón ... // en proceso
+El [ejemplo 1](https://htmlpreview.github.io/?https://github.com/quelopelo/hormigon-ehe08/blob/main/docs/ejemplo1.html) consiste en la inicialización del programa, la creación de una sección de hormigón armado, y el análisis de las propiedades calculadas e incluídas en la sección generada. El ejemplo termina con el gráfico del diagrama de interacción de la sección generada.
+
+> En proceso de generación de otros ejemplos 
 
 ## Posibles futuros trabajos
 
