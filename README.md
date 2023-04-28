@@ -11,7 +11,7 @@ El flujo de trabajo en el programa es el siguiente:
 2. Crear una sección de hormigón armado y/o pretensado usando la función [crear_seccion](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/crear_seccion.m).
 3. Utilizar cualquiera de las funciones incluídas en el directorio [src/ehe](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe).
 
-Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usando el comando `help` seguido por el nombre de la función (por ejemplo: `help crear_seccion`). Adicionalmente, se incluyen algunos [ejemplos](https://htmlpreview.github.io/?https://github.com/quelopelo/hormigon-ehe08/blob/main/docs) que sirven de guía del flujo de trabajo y de las funciones implementadas.
+Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usando el comando `help` seguido por el nombre de la función (por ejemplo: `help crear_seccion`). Adicionalmente, se incluyen algunos [ejemplos](https://github.com/quelopelo/hormigon-ehe08/blob/main/src/docs) que sirven de guía del flujo de trabajo y de las funciones implementadas.
 
 ## Lista de funciones
 
