@@ -1,15 +1,15 @@
-# Hormigon EHE-08
+# Hórmigon EHE-08
 
 ## Introducción
 
-Hormigon EHE-08 consiste en un conjunto de funciones implementadas en MATLAB para diseñar secciones de hormigón armado y pretensado según la norma española EHE-08. Por ser una versión inicial y estar en desarrollo, el programa se distribuye únicamente mediante el [código fuente](https://github.com/quelopelo/hormigon-ehe08/tree/main/src) de MATLAB.
+Hórmigon EHE-08 consiste en un conjunto de funciones implementadas en MATLAB para diseñar secciones de hormigón armado y pretensado según la norma española EHE-08. Por ser una versión inicial y estar en desarrollo, el programa se distribuye únicamente mediante el [código fuente](https://github.com/quelopelo/hormigon-ehe08/tree/main/src) de MATLAB.
 
 Actualmente, el programa permite trabajar con secciones de hormigón armado y/o pretensado con un eje de simetría. Una vez ingresada la sección es posible obtener las propiedades lineales, como la posición del baricentro y la inercia bruta; y las propiedades no lineales (dependientes de las solicitaciones), como el momento de fisuración, la inercia fisurada y la inercia equivalente. A su vez, el programa permite obtener la ley plana de deformaciones dadas unas solicitaciones; así como las solicitaciones dada una ley plana de deformaciones. Por último, vinculada a esta última funcionalidad, el programa permite calcular el factor de utilización para unas solicitaciones dadas. Esta función se puede usar iterativamente para dimensionar una sección.
 
 El flujo de trabajo en el programa es el siguiente:
 1. Agregar al *path* los directorios [src/ehe](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe) y [src/utils](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/utils), por ejemplo a partir del script [init](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/init.m).
 2. Crear una sección de hormigón armado y/o pretensado usando la función [crear_seccion](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe/crear_seccion.m).
-3. Utilizar cualquiera de las funciones incluídas en el directorio [src/ehe](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe).
+3. Utilizar cualquiera de las funciones incluidas en el directorio [src/ehe](https://github.com/quelopelo/hormigon-ehe08/tree/main/src/ehe).
 
 Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usando el comando `help` seguido por el nombre de la función (por ejemplo: `help crear_seccion`). Adicionalmente, se incluyen algunos [ejemplos](https://github.com/quelopelo/hormigon-ehe08/blob/main/src/docs) que sirven de guía del flujo de trabajo y de las funciones implementadas.
 
@@ -317,12 +317,12 @@ Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usa
     [coef, eInf, eSup] = coeficiente_solicitaciones_normales(N, M, seccion)
     adicionalmente devuelve la pareja de deformaciones 'eInf' y 'eSup'
     correspondiente a la ley plana de deformaciones en agotamiento que
-    iguala la exentricidad última con la actuante e ingresada (M / N).
+    iguala la excentricidad última con la actuante e ingresada (M / N).
 
     [coef, eInf, eSup] = coeficiente_solicitaciones_normales(N, M, seccion, ...
     eInfVec, eSupVec) permite modificar la frontera de deformaciones a partir 
     de la pareja de deformaciones definida en los vectores 'eInfVec' y 
-    'eSupVec'. Este sintaxis solo es recomendada para en contextos específicos.
+    'eSupVec'. Esta sintaxis solo es recomendada para en contextos específicos.
 
     ENTRADA REQUERIDA:
     N              Directa (con signo) actuante (N)
@@ -484,7 +484,7 @@ Todas las funciones incluyen una ayuda que puede ser consultada desde MATLAB usa
 
 Esta sección contiene los enlaces a los ejemplos de la documentación.
 
-El [ejemplo 1](https://htmlpreview.github.io/?https://github.com/quelopelo/hormigon-ehe08/blob/main/docs/ejemplo1.html) consiste en la inicialización del programa, la creación de una sección de hormigón armado, y el análisis de las propiedades calculadas e incluídas en la sección generada. El ejemplo termina con el gráfico del diagrama de interacción de la sección generada.
+El [ejemplo 1](https://htmlpreview.github.io/?https://github.com/quelopelo/hormigon-ehe08/blob/main/docs/ejemplo1.html) consiste en la inicialización del programa, la creación de una sección de hormigón armado, y el análisis de las propiedades calculadas e incluidas en la sección generada. El ejemplo termina con el gráfico del diagrama de interacción de la sección generada.
 
 El [ejemplo 2](https://htmlpreview.github.io/?https://github.com/quelopelo/hormigon-ehe08/blob/main/docs/ejemplo2.html) consiste en la creación de una sección de hormigón pretensado, y el análisis de las propiedades calculadas (específicas de las secciones pretensadas). Posteriormente, se calcula y grafica el momento de fisuración (en función de la directa aplicada) y la inercia equivalente (en función de la directa y el momento flector aplicados).
 
