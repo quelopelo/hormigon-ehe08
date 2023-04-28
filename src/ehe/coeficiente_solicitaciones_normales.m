@@ -14,12 +14,12 @@ function [coef, eInf, eSup] = coeficiente_solicitaciones_normales(N, M, ...
 %    [coef, eInf, eSup] = coeficiente_solicitaciones_normales(N, M, seccion)
 %    adicionalmente devuelve la pareja de deformaciones 'eInf' y 'eSup'
 %    correspondiente a la ley plana de deformaciones en agotamiento que
-%    iguala la exentricidad última con la actuante e ingresada (M / N).
+%    iguala la excentricidad última con la actuante e ingresada (M / N).
 % 
 %    [coef, eInf, eSup] = coeficiente_solicitaciones_normales(N, M, seccion, ...
 %    eInfVec, eSupVec) permite modificar la frontera de deformaciones a partir 
 %    de la pareja de deformaciones definida en los vectores 'eInfVec' y 
-%    'eSupVec'. Este sintaxis solo es recomendada para en contextos específicos.
+%    'eSupVec'. Esta sintaxis solo es recomendada para en contextos específicos.
 % 
 %    ENTRADA REQUERIDA:
 %    N              Directa (con signo) actuante (N)
