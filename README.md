@@ -1,8 +1,8 @@
-# Hórmigon EHE-08
+# Hormigón EHE-08
 
 ## Introducción
 
-Hórmigon EHE-08 consiste en un conjunto de funciones implementadas en MATLAB para diseñar secciones de hormigón armado y pretensado según la norma española EHE-08. Por ser una versión inicial y estar en desarrollo, el programa se distribuye únicamente mediante el [código fuente](https://github.com/quelopelo/hormigon-ehe08/tree/main/src) de MATLAB.
+Hormigón EHE-08 consiste en un conjunto de funciones implementadas en MATLAB para diseñar secciones de hormigón armado y pretensado según la norma española EHE-08. Por ser una versión inicial y estar en desarrollo, el programa se distribuye únicamente mediante el [código fuente](https://github.com/quelopelo/hormigon-ehe08/tree/main/src) de MATLAB.
 
 Actualmente, el programa permite trabajar con secciones de hormigón armado y/o pretensado con un eje de simetría. Una vez ingresada la sección es posible obtener las propiedades lineales, como la posición del baricentro y la inercia bruta; y las propiedades no lineales (dependientes de las solicitaciones), como el momento de fisuración, la inercia fisurada y la inercia equivalente. A su vez, el programa permite obtener la ley plana de deformaciones dadas unas solicitaciones; así como las solicitaciones dada una ley plana de deformaciones. Por último, vinculada a esta última funcionalidad, el programa permite calcular el factor de utilización para unas solicitaciones dadas. Esta función se puede usar iterativamente para dimensionar una sección.
 
