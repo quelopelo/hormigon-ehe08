@@ -486,7 +486,9 @@ Esta sección contiene los enlaces a los ejemplos de la documentación.
 
 El [ejemplo 1](https://htmlpreview.github.io/?https://github.com/quelopelo/hormigon-ehe08/blob/main/docs/ejemplo1.html) consiste en la inicialización del programa, la creación de una sección de hormigón armado, y el análisis de las propiedades calculadas e incluídas en la sección generada. El ejemplo termina con el gráfico del diagrama de interacción de la sección generada.
 
-> En proceso de generación de otros ejemplos 
+El [ejemplo 2](https://htmlpreview.github.io/?https://github.com/quelopelo/hormigon-ehe08/blob/main/docs/ejemplo2.html) consiste en la creación de una sección de hormigón pretensado, y el análisis de las propiedades calculadas (específicas de las secciones pretensadas). Posteriormente, se calcula y grafica el momento de fisuración (en función de la directa aplicada) y la inercia equivalente (en función de la directa y el momento flector aplicados).
+
+> En proceso de generación del ejemplo 3
 
 ## Posibles futuros trabajos
 
