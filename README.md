@@ -490,8 +490,6 @@ El [ejemplo 2](https://htmlpreview.github.io/?https://github.com/quelopelo/hormi
 
 El [ejemplo 3](https://htmlpreview.github.io/?https://github.com/quelopelo/hormigon-ehe08/blob/main/docs/ejemplo3.html) consiste en la creación de una sección de hormigón armado y pretensado, en el cálculo de solicitaciones a partir de una pareja de deformaciones y en el cálculo de la pareja de deformaciones en función de las solicitaciones. Al final, se calcula el máximo momento flector para una directa dada.
 
-> En proceso de generación del ejemplo 3
-
 ## Posibles futuros trabajos
 
 - Extender el cálculo de solicitaciones normales a secciones sin un eje de simetría.
